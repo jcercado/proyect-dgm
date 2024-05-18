@@ -8,7 +8,7 @@ class Model {
     protected $pdo;
 
     public function __construct() {
-        $config = require_once '../config/database.php';
+        $config = require_once 'C:/xampp/htdocs/proyect/app/config/database.php';
 
         $host = $config['host'];
         $dbname = $config['dbname'];
