@@ -8,7 +8,11 @@ class Model {
     protected $pdo;
 
     public function __construct() {
-        $config = require_once 'C:/xampp/htdocs/proyect/app/config/database.php';
+        // Obtener la ruta absoluta al archivo de configuración
+        $configPath = dirname(__DIR__) . '../config/database.php';
+        
+        // Incluir el archivo de configuración
+        $config = require_once $configPath;
 
         $host = $config['host'];
         $dbname = $config['dbname'];
@@ -25,4 +29,3 @@ class Model {
         }
     }
 }
-
