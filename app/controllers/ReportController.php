@@ -4,15 +4,14 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Models\Activity;
-
-require '../vendor/fpdf/fpdf.php';
+use setasign\Fpdf\Fpdf;  // Importar correctamente la clase Fpdf
 
 class ReportController extends Controller {
     public function generatePDF() {
         $activityModel = new Activity();
         $activities = $activityModel->getAllActivities();
 
-        $pdf = new \FPDF();
+        $pdf = new Fpdf();  // Crear una nueva instancia de Fpdf
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(40, 10, 'Reporte de Actividades');
@@ -30,5 +29,14 @@ class ReportController extends Controller {
         }
 
         $pdf->Output();
+    }
+
+    public function report() {
+        $this->render('report/report');
+    }
+
+    protected function render($view, $data = []) {
+        extract($data);
+        require "../app/views/{$view}.php";
     }
 }
