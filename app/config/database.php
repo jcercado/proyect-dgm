@@ -5,5 +5,5 @@ return [
     'dbname' => 'rtd-dgm',
     'username' => 'root',
     'password' => '',
-    'charset' => 'utf8mb4_unicode_ci'
+    'charset' => 'utf8mb4_unicode'
 ];
